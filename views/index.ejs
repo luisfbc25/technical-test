@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search People by Name</title>
-</head>
-<body>
-    <p>Type the name of the person you want to seach</p>
+  </head>
+  <body>
+    <p>Type the name of the person you want to search</p>
     <form action="/search" method="POST">
-        <div id="searchContainer">
-            <input type="text" id="nameInput" name="nameInput" placeholder="Enter a name...">
-            <button type="submit">Search</button>
-        </div>
+      <div id="searchContainer">
+        <input
+          type="text"
+          id="nameInput"
+          name="nameInput"
+          required="true"
+          placeholder="Enter a name..."
+        />
+        <button type="submit">Search</button>
+        <button type="reset">Clear</button>
+      </div>
     </form>
-</body>
+    <div id="searchHistory">
+      <p>Last 10 searches:</p>
+      <!-- looks for if the history exists and displays it -->
+      <% if(locals.history != "" ) {%>
+      <ul id="searchHistoryList">
+        <% history.reverse().forEach(item => { %>
+        <li><%= item.name %></li>
+        <% }); %>
+      </ul>
+      <% } else {%>
+      <!-- otherwise, indicates that there is no history -->
+      <p>There is no search history</p>
+      <% } %>
+    </div>
+  </body>
 </html>
