@@ -1,0 +1,48 @@
+body {
+  background-color: #010101;
+  color: white;
+}
+
+form {
+  min-width: 55vh;
+}
+
+.btn {
+  background-color: #cddc39;
+  font-weight: 400;
+}
+
+.btn:hover {
+  background-color: #3d3d3d;
+}
+
+.list-group-item {
+  background-color: #3d3d3d;
+  color: white;
+  width: 40%;
+}
+
+#searchContainer ::placeholder {
+  color: rgb(255, 255, 255);
+  opacity: 0.5;
+}
+
+#searchContainer:hover ::placeholder {
+  color: rgb(255, 255, 255);
+  opacity: 1;
+}
+
+@media only screen and (max-width: 1000px) {
+  .list-group-item {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .list-group-item {
+    width: 85%;
+  }
+  form {
+    min-width: 85%;
+  }
+}
