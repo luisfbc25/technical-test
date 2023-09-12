@@ -7,7 +7,6 @@ import fs from "fs/promises";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
-const port = 3000;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -61,6 +60,11 @@ function capitalizeWords(text) {
   });
 }
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
 app.listen(port, () => {
-  console.log(`Server running on port: ${port}`);
+  console.log("Server has started sucessfully");
 });
